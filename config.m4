@@ -5,7 +5,7 @@ PHP_ARG_ENABLE(proctitle, whether to enable proctitle support,
 [  --enable-proctitle           Enable proctitle support])
 
 if test "$PHP_PROCTITLE" != "no"; then
-	AC_CACHE_VAL(php_system_provides_setproctitle_call,[
+	AC_CACHE_VAL(php_cv_system_provides_setproctitle_call,[
 	AC_CHECK_FUNCS(setproctitle, [
 		php_system_provides_setproctitle_call=yes
 		break

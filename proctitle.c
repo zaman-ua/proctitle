@@ -32,6 +32,7 @@
 #endif
 
 #include "php_proctitle.h"
+#include "ext/standard/info.h"
 
 static char *argv0 = NULL;
 #define MAX_TITLE_LENGTH        128
@@ -76,7 +77,7 @@ PHP_FUNCTION(setproctitle)
 	char    *title;
 	long    tlen;
 
-	if(zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "s",&title,
+	if(zend_parse_parameters(ZEND_NUM_ARGS(), "s",&title,
 			&tlen) == FAILURE) {
 		RETURN_NULL();
 	}
@@ -99,7 +100,7 @@ PHP_FUNCTION(setthreadtitle)
 	char *title;
 	int title_len;
 
-	if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "s", &title, &title_len) == FAILURE) {
+	if (zend_parse_parameters(ZEND_NUM_ARGS(), "s", &title, &title_len) == FAILURE) {
 		return;
 	}
 	if (0 == prctl(PR_SET_NAME, title, 0, 0, 0)) {
