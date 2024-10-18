@@ -92,7 +92,13 @@ function shutdown()
 }
 register_shutdown_function('shutdown');
 ```
+### 7. Отслеживание процессов в консоли Linux
+После успешного добавления модуля, в перечне процессов top (нажать "с") и htop мы будем видеть с каким файлом работает fpm процесс и какой RQUEST_URI
 
+Также удобно буде использовать команду:
+```bash
+watch -n 1 "ps -eo pid,comm,args | grep php-fpm"
+```
 
 ### References:
 
